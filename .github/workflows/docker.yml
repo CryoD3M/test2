@@ -17,3 +17,9 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t dem-site .
+
+      - name: Run container
+        run: docker run -d -p 8080:80 --name dem-site dem-site
+
+      - name: Test website
+        run: curl --fail http://localhost:8080
